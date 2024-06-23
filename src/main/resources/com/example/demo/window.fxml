@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane fx:id="root" alignment="TOP_CENTER" hgap="10" vgap="10">
+    <columnConstraints>
+        <ColumnConstraints minWidth="200" maxWidth="300" />
+        <ColumnConstraints minWidth="500" maxWidth="800" />
+    </columnConstraints>
+
+    <HBox fx:id="header" prefHeight="50" style="-fx-background-color: #f0f0f0">
+        <Label text="Велосервис" style="-fx-font-size: 24px; -fx-font-weight: bold" />
+        <Spacer />
+        <Button text="Войти" fx:id="loginButton" />
+        <Button text="Зарегистрироваться" fx:id="registerButton" />
+    </HBox>
+
+    <GridPane fx:id="content" GridPane.columnSpan="2">
+        <ListView fx:id="bikeListView" prefWidth="200" />
+
+        <StackPane GridPane.columnIndex="1">
+            <VBox fx:id="bikeDetails" visible="false">
+                <ImageView fx:id="bikeImageView" fitWidth="300" />
+                <Label fx:id="bikeNameLabel" style="-fx-font-size: 20px; -fx-font-weight: bold" />
+                <Label fx:id="bikeDescriptionLabel" />
+                <Label fx:id="bikePriceLabel" />
+                <Button fx:id="bookButton" text="Забронировать" />
+            </VBox>
+
+            <VBox fx:id="cart" visible="false">
+                <Label text="Корзина" style="-fx-font-size: 20px; -fx-font-weight: bold" />
+                <ListView fx:id="cartListView" prefHeight="200" />
+                <Label fx:id="cartTotalLabel" />
+                <HBox>
+                    <Button fx:id="payButton" text="Оплатить" />
+                    <Button fx:id="cancelButton" text="Отменить" />
+                </HBox>
+            </VBox>
+
+            <VBox fx:id="myBookings" visible="false">
+                <Label text="Мои бронирования" style="-fx-font-size: 20px; -fx-font-weight: bold" />
+                <ListView fx:id="myBookingsListView" prefHeight="300" />
+            </VBox>
+        </StackPane>
+    </GridPane>
+
+    <HBox fx:id="footer" alignment="CENTER" prefHeight="50" style="-fx-background-color: #f0f0f0">
+        <Label text="© 2024 Велосервис" />
+        <Spacer />
+        <Label text="Контакты" />
+        <Label text="Соцсети" />
+        <Label text="Подписаться" />
+    </HBox>
+</GridPane>

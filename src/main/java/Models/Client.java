@@ -11,7 +11,7 @@ public class Client extends User{
         _name = name;
         _password = password;
         _seriesPassport = seriesPassport;
-        _numberPassword = numberPassword;
+        _numberPassport = numberPassword;
     }
 
     public void setAddress(DataBaseSingleton db,String address, String city){

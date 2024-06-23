@@ -6,19 +6,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.registrationController">
    <children>
       <Label layoutX="226.0" layoutY="87.0" prefHeight="31.0" prefWidth="156.0" text="Регистрация" textAlignment="CENTER">
          <font>
             <Font name="Arial" size="26.0" />
          </font>
       </Label>
-      <TextField fx:id="loginField" layoutX="222.0" layoutY="180.0" onAction="#readTextArea" prefHeight="26.0" prefWidth="62.0" promptText="Номер" />
-      <TextField fx:id="passwordField" layoutX="293.0" layoutY="180.0" onAction="#readTextArea" prefHeight="26.0" prefWidth="108.0" promptText="Серия паспорта" />
-      <Button fx:id="enterButton" layoutX="274.0" layoutY="300.0" mnemonicParsing="false" onAction="#readTextArea" text="Зарегестрироваться" />
-      <TextField fx:id="passwordField1" layoutX="222.0" layoutY="140.0" onAction="#readTextArea" prefHeight="26.0" prefWidth="179.0" promptText="Имя" />
-      <TextField fx:id="passwordField2" layoutX="222.0" layoutY="221.0" onAction="#readTextArea" prefHeight="26.0" prefWidth="179.0" promptText="Пароль" />
-      <TextField fx:id="passwordField21" layoutX="222.0" layoutY="260.0" onAction="#readTextArea" prefHeight="26.0" prefWidth="179.0" promptText="Повторите пароль" />
+      <TextField fx:id="seriesField" layoutX="222.0" layoutY="180.0" onAction="#registration" prefHeight="26.0" prefWidth="62.0" promptText="Номер" />
+      <TextField fx:id="numberField" layoutX="293.0" layoutY="180.0" onAction="#registration" prefHeight="26.0" prefWidth="108.0" promptText="Серия паспорта" />
+      <Button fx:id="enterButton" layoutX="274.0" layoutY="300.0" mnemonicParsing="false" onAction="#registration" text="Зарегестрироваться" />
+      <TextField fx:id="nameField" layoutX="222.0" layoutY="140.0" onAction="#registration" prefHeight="26.0" prefWidth="179.0" promptText="Имя" />
+      <TextField fx:id="passwordField" layoutX="222.0" layoutY="221.0" onAction="#registration" prefHeight="26.0" prefWidth="179.0" promptText="Пароль" />
+      <TextField fx:id="passwordField2" layoutX="222.0" layoutY="260.0" onAction="#registration" prefHeight="26.0" prefWidth="179.0" promptText="Повторите пароль" />
    </children>
 </AnchorPane>

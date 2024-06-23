@@ -9,7 +9,7 @@ abstract class User {
 
     protected int _seriesPassport;
 
-    protected int _numberPassword;
+    protected int _numberPassport;
 
     public int getId(){
         return _id;

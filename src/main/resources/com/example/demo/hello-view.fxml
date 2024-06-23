@@ -16,7 +16,7 @@
       </Label>
       <TextField fx:id="loginField" layoutX="225.0" layoutY="140.0" onAction="#readTextArea" promptText="Логин" />
       <Button fx:id="enterButton" layoutX="326.0" layoutY="239.0" mnemonicParsing="false" onAction="#readTextArea" text="Войти" />
-      <Button layoutX="226.0" layoutY="239.0" mnemonicParsing="false" text="Регистрация" />
+      <Button fx:id="registration" layoutX="226.0" layoutY="239.0" mnemonicParsing="false" onAction="#switchToRegistration" text="Регистрация" />
       <PasswordField fx:id="passwordField" layoutX="225.0" layoutY="187.0" onAction="#readTextArea" promptText="Пароль" />
    </children>
 </AnchorPane>

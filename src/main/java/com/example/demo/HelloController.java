@@ -9,17 +9,15 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class HelloController {
-    Stage stage;
-    Parent root;
-    Scene scene;
+    private Stage stage;
+    private Parent root;
+    private Scene scene;
+
     @FXML
     private TextField loginField;
 
     @FXML
     private TextField passwordField;
-
-    @FXML
-    private String text;
 
     @FXML
     protected void readTextArea(ActionEvent e) throws Exception{

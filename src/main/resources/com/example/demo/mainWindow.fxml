@@ -51,7 +51,6 @@
                   <Button fx:id="bikesBtn" layoutX="16.0" layoutY="15.0" mnemonicParsing="false" onAction="#switchToBikes" prefHeight="30.0" prefWidth="190.0" text="Велосипеды" />
                   <Button fx:id="profileBtn" layoutX="16.0" layoutY="105.0" mnemonicParsing="false" onAction="#switchToProfile" prefHeight="30.0" prefWidth="115.0" text="Профиль" />
                   <Button fx:id="exitBtn" layoutX="141.0" layoutY="105.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="68.0" text="Выйти" textFill="#fafafa" />
-                  <Button fx:id="btn" layoutX="85.0" layoutY="274.0" mnemonicParsing="false" onAction="#switchToExample" text="Button" />
                </children>
         </AnchorPane>
         <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
@@ -109,7 +108,7 @@
                         </ImageView>
                         <Button fx:id="rentBtn5" layoutX="262.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToRent" prefHeight="30.0" prefWidth="145.0" text="Арендовать" />
                         <Button fx:id="bookBtn5" layoutX="262.0" layoutY="332.0" mnemonicParsing="false" onAction="#switchToBooking" prefHeight="30.0" prefWidth="145.0" text="Забронировать" />
-                        <ImageView fx:id="imageT" accessibleRole="BUTTON" cache="true" fitHeight="100.0" fitWidth="150.0" layoutX="506.0" layoutY="197.0" onMouseClicked="#switchToBikeDescription" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imageT2" accessibleRole="BUTTON" cache="true" fitHeight="100.0" fitWidth="150.0" layoutX="506.0" layoutY="197.0" onMouseClicked="#switchToBikeDescription" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Images/bicycle/town2.png" />
                            </image>

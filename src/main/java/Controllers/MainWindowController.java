@@ -56,7 +56,9 @@ public class MainWindowController {
     @FXML
     private void switchToRent(ActionEvent event) throws Exception{
         //Надо переписать
-        root = FXMLLoader.load(getClass().getResource("rentView.fxml"));
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("rentView.fxml"));
+        root = loader.load();
+
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -73,6 +75,13 @@ public class MainWindowController {
     @FXML
     private void switchToBooking(ActionEvent event) throws Exception{
         //Надо дописать
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("bookingView.fxml"));
+        root = loader.load();
+
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -86,7 +95,9 @@ public class MainWindowController {
 
     @FXML
     protected void switchToProfile(ActionEvent event) throws Exception{
-        root = FXMLLoader.load(HelloApplication.class.getResource("mainWindow.fxml"));
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("profileView.fxml"));
+        root = loader.load();
+
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -96,6 +107,13 @@ public class MainWindowController {
     @FXML
     protected void switchToShops(ActionEvent event) throws Exception{
         //Надо дописать
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("shopsView.fxml"));
+        root = loader.load();
+
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

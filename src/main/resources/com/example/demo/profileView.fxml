@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainWindowController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.profileController">
    <children>
       <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="600.0" prefWidth="900.0" VBox.vgrow="NEVER">
          <items>
@@ -24,20 +26,26 @@
             </AnchorPane>
             <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
                <content>
-                  <AnchorPane prefHeight="559.0" prefWidth="670.0">
+                  <AnchorPane prefHeight="599.0" prefWidth="670.0">
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="170.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                        <TextField layoutX="228.0" layoutY="138.0" prefHeight="26.0" prefWidth="213.0" />
                         <Text layoutX="228.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Имя" wrappingWidth="75.7366943359375" />
-                        <TextField layoutX="228.0" layoutY="195.0" prefHeight="26.0" prefWidth="62.0" />
                         <Text layoutX="228.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Серия и номер паспорта" wrappingWidth="190.39999999999998" />
-                        <TextField layoutX="302.0" layoutY="195.0" prefHeight="26.0" prefWidth="141.0" />
                         <Text layoutX="228.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Адрес" wrappingWidth="75.7366943359375" />
-                        <TextField layoutX="228.0" layoutY="254.0" prefHeight="26.0" prefWidth="213.0" />
                         <Text layoutX="228.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пароль" wrappingWidth="75.7366943359375" />
                         <Text layoutX="227.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Повторите пароль" wrappingWidth="115.20000000000005" />
-                        <PasswordField layoutX="227.0" layoutY="318.0" prefHeight="26.0" prefWidth="216.0" />
-                        <PasswordField layoutX="227.0" layoutY="379.0" prefHeight="26.0" prefWidth="216.0" />
+                        <PasswordField fx:id="password1" layoutX="227.0" layoutY="318.0" prefHeight="26.0" prefWidth="222.0" />
+                        <PasswordField fx:id="password2" layoutX="227.0" layoutY="379.0" prefHeight="26.0" prefWidth="222.0" />
+                        <TextField fx:id="name" layoutX="227.0" layoutY="139.0" prefHeight="26.0" prefWidth="222.0" />
+                        <TextField fx:id="address" layoutX="227.0" layoutY="253.0" prefHeight="26.0" prefWidth="222.0" promptText="Например: Советская, 4, 10 " />
+                        <Button fx:id="changeBtn" layoutX="375.0" layoutY="420.0" mnemonicParsing="false" text="Изменить" />
+                        <Label layoutX="224.0" layoutY="53.0" prefHeight="35.0" prefWidth="222.0" text="Настройки профиля">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="series" layoutX="227.0" layoutY="196.0" onAction="#registration" prefHeight="26.0" prefWidth="82.0" promptText="Номер" />
+                        <TextField fx:id="number" layoutX="315.0" layoutY="196.0" onAction="#registration" prefHeight="26.0" prefWidth="134.0" promptText="Серия паспорта" />
                      </children>
                   </AnchorPane>
                </content>

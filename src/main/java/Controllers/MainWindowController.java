@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -26,30 +27,30 @@ public class MainWindowController {
 
     @FXML
     protected void switchToBikeDescription(MouseEvent event) throws Exception{
-        bikeImage = whatImage(event);
-        FXMLLoader loader= FXMLLoader.load(HelloApplication.class.getResource("bikeDescription.fxml"));
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("bikeDescription.fxml"));
         root = loader.load();
 
         bikeDescriptionController controller = loader.getController();
+        controller.showLabel("123456");
         controller.showImage(whatImage(event));
 
+        //root = FXMLLoader.load(HelloApplication.class.getResource("bikeDescription.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();
+        stage.show();;
     }
 
-    private ImageView whatImage(Event event){
+    private Image whatImage(Event event){
         String imageId = ((ImageView) event.getSource()).getId();
-        //if (imageId.equals("imageM1")) return new ImageView("\"C:\\University\\1.2\\Course\\demo\\src\\main\\resources\\Images\\bicycle\\mountain.png\"");
-        return new ImageView("C:\\University\\1.2\\Course\\demo\\src\\main\\resources\\Images\\bicycle\\mountain.png");/*
-        else if (imageId.equals("imageM2")) return new ImageView("\"C:\\University\\1.2\\Course\\demo\\src\\main\\resources\\Images\\bicycle\\mountain2.png\"");
-        else if (imageId.equals("imageR1")) return new ImageView("\"C:\\University\\1.2\\Course\\demo\\src\\main\\resources\\Images\\bicycle\\road1.png\"");
-        else if (imageId.equals("imageR2")) return new ImageView("\"C:\\University\\1.2\\Course\\demo\\src\\main\\resources\\Images\\bicycle\\road2.png\"");
-        else if (imageId.equals("imageT1")) return new ImageView("\"C:\\University\\1.2\\Course\\demo\\src\\main\\resources\\Images\\bicycle\\town1.png\"");
-        else if (imageId.equals("imageT2")) return new ImageView("\"C:\\University\\1.2\\Course\\demo\\src\\main\\resources\\Images\\bicycle\\town2.png\"");
-        else return new ImageView();
-        */
+        if (imageId.equals("imageM1")) return new Image("C:\\University\\1.2\\Course\\demo\\src\\main\\resources\\Images\\bicycle\\mountain.png");
+        else if (imageId.equals("imageM2")) return new Image("C:\\University\\1.2\\Course\\demo\\src\\main\\resources\\Images\\bicycle\\mountain2.png");
+        else if (imageId.equals("imageR1")) return new Image("C:\\University\\1.2\\Course\\demo\\src\\main\\resources\\Images\\bicycle\\road1.png");
+        else if (imageId.equals("imageR2")) return new Image("C:\\University\\1.2\\Course\\demo\\src\\main\\resources\\Images\\bicycle\\road2.png");
+        else if (imageId.equals("imageT1")) return new Image("C:\\University\\1.2\\Course\\demo\\src\\main\\resources\\Images\\bicycle\\town1.png");
+        else if (imageId.equals("imageT2")) return new Image("C:\\University\\1.2\\Course\\demo\\src\\main\\resources\\Images\\bicycle\\town2.png");
+        else return new Image("C:\\University\\1.2\\Course\\demo\\src\\main\\resources\\Images\\profile.png");
+
     }
 
     @FXML
@@ -76,7 +77,7 @@ public class MainWindowController {
 
     @FXML
     protected void switchToBikes(ActionEvent event) throws Exception{
-        root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
+        root = FXMLLoader.load(HelloApplication.class.getResource("mainWindow.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -85,7 +86,11 @@ public class MainWindowController {
 
     @FXML
     protected void switchToProfile(ActionEvent event) throws Exception{
-        //Надо дописать
+        root = FXMLLoader.load(HelloApplication.class.getResource("mainWindow.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

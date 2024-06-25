@@ -34,18 +34,18 @@
                         <Text layoutX="228.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Адрес" wrappingWidth="75.7366943359375" />
                         <Text layoutX="228.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пароль" wrappingWidth="75.7366943359375" />
                         <Text layoutX="227.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Повторите пароль" wrappingWidth="115.20000000000005" />
-                        <PasswordField fx:id="password1" layoutX="227.0" layoutY="318.0" prefHeight="26.0" prefWidth="222.0" />
-                        <PasswordField fx:id="password2" layoutX="227.0" layoutY="379.0" prefHeight="26.0" prefWidth="222.0" />
-                        <TextField fx:id="name" layoutX="227.0" layoutY="139.0" prefHeight="26.0" prefWidth="222.0" />
-                        <TextField fx:id="address" layoutX="227.0" layoutY="253.0" prefHeight="26.0" prefWidth="222.0" promptText="Например: Советская, 4, 10 " />
-                        <Button fx:id="changeBtn" layoutX="375.0" layoutY="420.0" mnemonicParsing="false" text="Изменить" />
+                        <PasswordField fx:id="password1" layoutX="227.0" layoutY="318.0" onAction="#changeData" prefHeight="26.0" prefWidth="222.0" />
+                        <PasswordField fx:id="password2" layoutX="227.0" layoutY="379.0" onAction="#changeData" prefHeight="26.0" prefWidth="222.0" />
+                        <TextField fx:id="name" layoutX="227.0" layoutY="139.0" onAction="#changeData" prefHeight="26.0" prefWidth="222.0" />
+                        <TextField fx:id="address" layoutX="227.0" layoutY="253.0" onAction="#changeData" prefHeight="26.0" prefWidth="222.0" promptText="Например: Советская, 4, 10 " />
+                        <Button fx:id="changeBtn" layoutX="375.0" layoutY="420.0" mnemonicParsing="false" onAction="#changeData" text="Изменить" />
                         <Label layoutX="224.0" layoutY="53.0" prefHeight="35.0" prefWidth="222.0" text="Настройки профиля">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="series" layoutX="227.0" layoutY="196.0" onAction="#registration" prefHeight="26.0" prefWidth="82.0" promptText="Номер" />
-                        <TextField fx:id="number" layoutX="315.0" layoutY="196.0" onAction="#registration" prefHeight="26.0" prefWidth="134.0" promptText="Серия паспорта" />
+                        <TextField fx:id="series" layoutX="227.0" layoutY="196.0" onAction="#changeData" prefHeight="26.0" prefWidth="82.0" promptText="Номер" />
+                        <TextField fx:id="number" layoutX="315.0" layoutY="196.0" onAction="#changeData" prefHeight="26.0" prefWidth="134.0" promptText="Серия паспорта" />
                      </children>
                   </AnchorPane>
                </content>

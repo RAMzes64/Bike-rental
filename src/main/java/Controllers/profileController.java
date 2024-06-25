@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.DataBaseSingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -26,7 +27,9 @@ public class profileController extends MainWindowController{
     private TextField password2;
     @FXML
     private void changeData(ActionEvent event){
-        setTextFields(readTextFields());
+        String[] strs = readTextFields();
+        setTextFields(strs);
+        //changeDB(strs,); Доделать
     }
     private boolean similarPasswords(String p1, String p2){
         if (p1.equals(p2)) return true;
@@ -78,8 +81,8 @@ public class profileController extends MainWindowController{
         if (numberCheck(strs[2])) number.setText(strs[2]);
         if (addressCheck(strs[3])) address.setText(strs[3]);
         if (similarPasswords(strs[4], strs[5])){
-            address.setText(strs[4]);
-            address.setText(strs[5]);
+            password1.setText(strs[4]);
+            password2.setText(strs[5]);
         }
     }
 
@@ -93,5 +96,9 @@ public class profileController extends MainWindowController{
         strs[5] = password2.getText();
 
         return strs;
+    }
+
+    private void changeDB(String[] strs, DataBaseSingleton db){
+
     }
 }

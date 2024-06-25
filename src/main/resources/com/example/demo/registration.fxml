@@ -14,10 +14,11 @@
          </font>
       </Label>
       <TextField fx:id="seriesField" layoutX="222.0" layoutY="180.0" onAction="#registration" prefHeight="26.0" prefWidth="62.0" promptText="Номер" />
-      <TextField fx:id="numberField" layoutX="293.0" layoutY="180.0" onAction="#registration" prefHeight="26.0" prefWidth="108.0" promptText="Серия паспорта" />
-      <Button fx:id="enterButton" layoutX="274.0" layoutY="300.0" mnemonicParsing="false" onAction="#registration" text="Зарегестрироваться" />
-      <TextField fx:id="nameField" layoutX="222.0" layoutY="140.0" onAction="#registration" prefHeight="26.0" prefWidth="179.0" promptText="Имя" />
-      <TextField fx:id="passwordField" layoutX="222.0" layoutY="221.0" onAction="#registration" prefHeight="26.0" prefWidth="179.0" promptText="Пароль" />
-      <TextField fx:id="passwordField2" layoutX="222.0" layoutY="260.0" onAction="#registration" prefHeight="26.0" prefWidth="179.0" promptText="Повторите пароль" />
+      <TextField fx:id="numberField" layoutX="293.0" layoutY="180.0" onAction="#registration" prefHeight="26.0" prefWidth="121.0" promptText="Серия паспорта" />
+      <Button fx:id="regBtn" layoutX="289.0" layoutY="300.0" mnemonicParsing="false" onAction="#registration" prefHeight="26.0" prefWidth="130.0" text="Зарегестрироваться" />
+      <TextField fx:id="nameField" layoutX="222.0" layoutY="140.0" onAction="#registration" prefHeight="26.0" prefWidth="194.0" promptText="Имя" />
+      <TextField fx:id="passwordField" layoutX="222.0" layoutY="221.0" onAction="#registration" prefHeight="26.0" prefWidth="194.0" promptText="Пароль" />
+      <TextField fx:id="passwordField2" layoutX="222.0" layoutY="260.0" onAction="#registration" prefHeight="26.0" prefWidth="194.0" promptText="Повторите пароль" />
+      <Button fx:id="stepBackBtn" layoutX="222.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="26.0" prefWidth="50.0" text="Назад" />
    </children>
 </AnchorPane>

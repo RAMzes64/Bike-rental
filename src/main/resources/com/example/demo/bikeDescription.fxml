@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.AppBar?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -10,9 +9,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainWindowController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.bikeDescriptionController">
    <children>
-      <AppBar titleText="AppBar" />
       <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="600.0" prefWidth="900.0" VBox.vgrow="NEVER">
          <items>
             <AnchorPane prefHeight="535.0" prefWidth="222.0">
@@ -27,7 +25,7 @@
                <content>
                   <AnchorPane prefHeight="559.0" prefWidth="670.0">
                      <children>
-                        <ImageView fitHeight="200.0" fitWidth="275.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="image" fitHeight="200.0" fitWidth="275.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
                         <Label layoutX="14.0" layoutY="214.0" prefHeight="31.0" prefWidth="334.0" text="Label">
                            <font>
                               <Font size="21.0" />

@@ -1,9 +1,17 @@
 package Controllers;
 
+import com.example.demo.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 import static javafx.scene.control.Alert.AlertType.CONFIRMATION;
 
@@ -31,6 +39,15 @@ public class registrationController {
         readPassport();
         readPasswords();
         System.out.println(series + "\t" + number);
+    }
+
+    @FXML
+    private void switchToLogin(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     private boolean similiarPasswords(String pass, String pass2){

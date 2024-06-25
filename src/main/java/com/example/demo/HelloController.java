@@ -20,8 +20,13 @@ public class HelloController {
     private TextField passwordField;
 
     @FXML
-    protected void readTextArea(ActionEvent e) throws Exception{
-        System.out.println(loginField.getText() + "\t" + passwordField.getText());
+    protected void readTextArea(ActionEvent event) throws Exception{
+        System.out.println(loginField.getText() + "\t" + passwordField.getId());
+        root = FXMLLoader.load(HelloApplication.class.getResource("mainWindow.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     @FXML
     private void switchToRegistration(ActionEvent event) throws Exception{

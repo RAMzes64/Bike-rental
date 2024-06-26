@@ -6,32 +6,41 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
+
 public class profileController extends MainWindowController{
 
     @FXML
-    private TextField name;
+    protected TextField name;
 
     @FXML
-    private TextField series;
+    protected TextField series;
 
     @FXML
-    private TextField number;
+    protected TextField number;
 
     @FXML
     private TextField address;
 
     @FXML
-    private TextField password1;
+    protected TextField password1;
 
     @FXML
-    private TextField password2;
+    protected TextField password2;
     @FXML
     private void changeData(ActionEvent event){
-        String[] strs = readTextFields();
-        setTextFields(strs);
-        //changeDB(strs,); Доделать
+        try {
+            String[] strs = readTextFields();
+            setTextFields(strs);
+            //changeDB(strs,); Доделать
+        }
+        catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("ERROR");
+            alert.setContentText("Что-то не так");
+            alert.show();
+        }
     }
-    private boolean similarPasswords(String p1, String p2){
+    protected boolean similarPasswords(String p1, String p2){
         if (p1.equals(p2)) return true;
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -42,7 +51,7 @@ public class profileController extends MainWindowController{
         return false;
     }
 
-    private boolean seriesCheck(String s){
+    protected boolean seriesCheck(String s){
         if (s.matches("^[0-9]{4}$")) return true;
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -53,7 +62,7 @@ public class profileController extends MainWindowController{
         return false;
     }
 
-    private boolean numberCheck(String n){
+    protected boolean numberCheck(String n){
         if (n.matches("^[0-9]{6}$")) return true;
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -64,7 +73,7 @@ public class profileController extends MainWindowController{
         return false;
     }
 
-    private boolean addressCheck(String a){
+    protected boolean addressCheck(String a){
         if (a.matches("^([А-ЯЁ][а-яё]+),\\s\\d{1,4},\\s\\d{1,5}$")) return true;
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -75,7 +84,7 @@ public class profileController extends MainWindowController{
         return false;
     }
 
-    private void setTextFields(String[] strs){
+    protected void setTextFields(String[] strs){
         name.setText(strs[0]);
         if (seriesCheck(strs[1])) series.setText(strs[1]);
         if (numberCheck(strs[2])) number.setText(strs[2]);
@@ -86,7 +95,7 @@ public class profileController extends MainWindowController{
         }
     }
 
-    private String[] readTextFields(){
+    protected String[] readTextFields(){
         String[] strs = new String[6];
         strs[0] = name.getText();
         strs[1] = series.getText();
@@ -99,6 +108,6 @@ public class profileController extends MainWindowController{
     }
 
     private void changeDB(String[] strs, DataBaseSingleton db){
-
+        //Серия и номер паспорта вместе
     }
 }

@@ -34,11 +34,10 @@ public class MainWindowController {
         controller.showLabel("123456");
         controller.showImage(whatImage(event));
 
-        //root = FXMLLoader.load(HelloApplication.class.getResource("bikeDescription.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();;
+        stage.show();
     }
 
     private Image whatImage(Event event){

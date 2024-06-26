@@ -15,7 +15,7 @@ import java.io.IOException;
 
 import static javafx.scene.control.Alert.AlertType.CONFIRMATION;
 
-public class registrationController {
+public class registrationController extends profileController {
     @FXML
     protected TextField nameField;
 
@@ -33,65 +33,48 @@ public class registrationController {
 
     @FXML
     private void registration(ActionEvent event) throws Exception {
-        String name, pass, pass2;
-        int series = 0, number = 0;
-        readName();
-        readPassport();
-        readPasswords();
-        System.out.println(series + "\t" + number);
+        try {
+            String[] strs = readTextFields();
+            setTextFields(strs);
+            //regDB(strs);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Вы зарегистрированы");
+            alert.show();
+        }
+        catch (Exception e){
+
+        }
     }
 
     @FXML
     private void switchToLogin(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    private boolean similiarPasswords(String pass, String pass2){
-        return pass.equals(pass2);
+    @Override
+    protected String[] readTextFields() {
+        String[] strs = new String[5];
+        strs[0] = nameField.getText();
+        strs[1] = seriesField.getText();
+        strs[2] = numberField.getText();
+        strs[3] = passwordField.getText();
+        strs[4] = passwordField2.getText();
+
+        return strs;
     }
 
-    private void readName(){
-        try {
-            System.out.println(nameField.getText());
-        }
-        catch (Exception e){
-
-        }
-    }
-
-    private void readPasswords() throws Exception{
-        try {
-            String pass = passwordField.getText();
-            String pass2 = passwordField2.getText();
-            if (!similiarPasswords(pass, pass2)) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Ошибка");
-                alert.setHeaderText("Неверное заполнение полей");
-                alert.setContentText("Пароли должны одинаковыми");
-                alert.show();
-            }
-            System.out.println(pass +"\t" + pass2);
-        }
-        catch (Exception e){
-
-        }
-    }
-
-    private void readPassport() throws Exception{
-        try{
-            int series = Integer.parseInt(seriesField.getText());
-            int number = Integer.parseInt(numberField.getText());
-        }
-        catch(Exception e){
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Ошибка");
-            alert.setHeaderText("Неверное заполнение полей");
-            alert.setContentText("Верно введите паспортные данные");
-            alert.show();
+    @Override
+    protected void setTextFields(String[] strs) {
+        nameField.setText(strs[0]);
+        if (seriesCheck(strs[1])) seriesField.setText(strs[1]);
+        if (numberCheck(strs[2])) numberField.setText(strs[2]);
+        if (similarPasswords(strs[4], strs[5])) {
+            passwordField.setText(strs[4]);
+            passwordField2.setText(strs[5]);
         }
     }
 }

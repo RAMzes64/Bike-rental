@@ -57,23 +57,19 @@
                <content>
                   <AnchorPane prefHeight="600.0" prefWidth="670.0">
                      <children>
-                        <TableView layoutX="15.0" layoutY="14.0" prefHeight="200.0" prefWidth="640.0">
+                        <TableView editable="true" layoutX="15.0" layoutY="14.0" prefHeight="200.0" prefWidth="640.0">
                           <columns>
                             <TableColumn fx:id="idT" prefWidth="70.3999605178833" text="id" />
-                            <TableColumn fx:id="dateBeginT" prefWidth="128.79998779296875" text="Дата начала" />
-                              <TableColumn fx:id="dateEndT" prefWidth="132.7999725341797" text="Дата конца" />
-                              <TableColumn fx:id="payT" prefWidth="155.99993896484375" text="Стоимость" />
-                              <TableColumn fx:id="clientIdT" prefWidth="78.4000244140625" text="Клиент" />
-                              <TableColumn fx:id="bikeIdT" prefWidth="79.20001220703125" text="Велосипед" />
+                            <TableColumn fx:id="dateT" prefWidth="204.8000946044922" text="Дата" />
+                              <TableColumn fx:id="payT" prefWidth="244.7999267578125" text="Сумма предоплаты" />
+                              <TableColumn fx:id="clientIdT" prefWidth="120.0" text="Клиент" />
                           </columns>
                         </TableView>
                         <TextField fx:id="idF" layoutX="13.0" layoutY="524.0" prefHeight="26.0" prefWidth="66.0" promptText="id" />
-                        <TextField fx:id="payF" layoutX="355.0" layoutY="524.0" prefHeight="26.0" prefWidth="145.0" promptText="Стоимость" />
+                        <TextField fx:id="payF" layoutX="295.0" layoutY="524.0" prefHeight="26.0" prefWidth="206.0" promptText="Стоимость" />
                         <TextField fx:id="clientF" layoutX="501.0" layoutY="524.0" prefHeight="26.0" prefWidth="76.0" promptText="Клиент" />
-                        <TextField fx:id="bikeF" layoutX="577.0" layoutY="524.0" prefHeight="26.0" prefWidth="80.0" promptText="Велосипед" />
                         <Button fx:id="btn" layoutX="513.0" layoutY="555.0" mnemonicParsing="false" text="Добавить/Изменить" />
-                        <DatePicker fx:id="DateEndF" layoutX="229.0" layoutY="524.0" prefHeight="26.0" prefWidth="126.0" promptText="Дата конца" />
-                        <DatePicker fx:id="DateBeginF" layoutX="79.0" layoutY="524.0" prefHeight="26.0" prefWidth="135.0" promptText="Дата начала" />
+                        <DatePicker fx:id="DateBeginF" layoutX="79.0" layoutY="524.0" prefHeight="26.0" prefWidth="214.0" promptText="Дата начала" />
                      </children>
                   </AnchorPane>
                </content>

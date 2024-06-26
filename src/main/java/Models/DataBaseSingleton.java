@@ -22,54 +22,9 @@ public class DataBaseSingleton {
 
     public static Connection getConnection() throws ClassNotFoundException, SQLException{
         Class.forName("com.mysql.jdbc.Driver");
-        return DriverManager.getConnection("", "", "");
+        return DriverManager.getConnection("jdbc:mysql://address=(protocol=tcp)(host=127.0.0.1)(port=3306)/bikeservice", "root", "" );
 
 //        return DriverManager.getConnection("", "", "");
-    }
-    public void registration(String name, String passport, String passsword){
-        connection = null;
-        statement = null;
-        try {
-            connection = this.getConnection();
-            statement = connection.prepareStatement("INSERT INTO users(passport, name, password, access) VALUES (?, ?, aes_encrypt(?,'key'), ?");
-            statement.setString(1, name);
-            statement.setString(2, passport);
-            statement.setString(3, passsword);
-            statement.setInt(4, 1);
-        }
-
-        catch (Exception e){
-
-        }
-    }
-
-    public boolean logIn(String name, String password) throws SQLException {//Надо переписать
-
-        connection = null;
-        statement = null;
-        resultSet = null;
-
-        try {
-            connection = this.getConnection();
-            statement = connection.prepareStatement("SELECT name, aes_decrypt(password, 'key') FROM users WHERE name = ? AND password = ?");
-            statement.setString(1, name);
-            statement.setString(2, password);
-            resultSet = statement.executeQuery();
-            if (!resultSet.getString(1).equals(null) && !resultSet.getString(2).equals(null)) return false;
-            return false;
-        }
-        catch (Exception e){
-
-        }
-
-        finally {
-            if(resultSet != null) resultSet.close();
-            if(connection != null) connection.close();
-            if(statement != null) statement.close();
-
-        }
-
-        return false;
     }
 
     public ArrayList<bikeModel> getAllModels() throws  SQLException{
@@ -98,5 +53,18 @@ public class DataBaseSingleton {
         }
 
         return bikeModels;
+    }
+
+    public void typo() throws SQLException, ClassNotFoundException {
+        connection = null;
+        statement = null;
+        resultSet = null;
+        System.out.println("1+++++++");
+
+            connection = this.getConnection();
+            statement = connection.prepareStatement("SELECT type, name, payment FROM models");
+            resultSet = statement.executeQuery();
+            if(resultSet.next()) System.out.println("1213");
+            else System.out.println("6767");
     }
 }

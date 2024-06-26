@@ -32,13 +32,12 @@ public class bookingController extends MainWindowController implements Initializ
 
     //private ArrayList<String> shops;
     private String[] shops = {"1", "2", "3"};
-    private void getModel(bikeModel model){
-        bikeModel = model;
-    }
 
     @FXML
     private void toBook(ActionEvent event){
+        //
         System.out.println(shopMenuBtn.getValue() + "\t" + getDate(event));
+
     }
 
     @Override
@@ -59,5 +58,12 @@ public class bookingController extends MainWindowController implements Initializ
 
     private String getDate(ActionEvent event){
         return dateBtn.getValue().toString();
+    }
+
+    public void getDb(DataBaseSingleton db){
+        this.db = db;
+    }
+    private void getModel(bikeModel model){
+        bikeModel = model;
     }
 }

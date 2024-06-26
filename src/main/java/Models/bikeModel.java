@@ -14,11 +14,11 @@ public class bikeModel {
 
     private int payPerDay;
 
-    private Connection connection ;
+    private static Connection connection ;
 
-    private PreparedStatement statement;
+    private static PreparedStatement statement;
 
-    private ResultSet resultSet;
+    private static ResultSet resultSet;
 
     public bikeModel(String type, String name, int payPerDay){
         this.type = type;
@@ -58,5 +58,28 @@ public class bikeModel {
         return bikeModels;
     }
 
-    //getModel()
+    public bikeModel(int id, DataBaseSingleton db) throws SQLException{
+        connection = null;
+        statement = null;
+        resultSet = null;
+
+        try{
+            connection = db.getConnection();
+            statement = connection.prepareStatement("SELECT type, name, payment FROM models WHERE id = ?");
+            statement.setInt(1, id);
+            resultSet = statement.executeQuery();
+
+            type = resultSet.getString(1);
+            name = resultSet.getString(2);
+            payPerDay = resultSet.getInt(3);
+        }
+        catch (Exception e){
+
+        }
+        finally {
+            if(resultSet != null) resultSet.close();
+            if(connection != null) connection.close();
+            if(statement != null) statement.close();
+        }
+    }
 }

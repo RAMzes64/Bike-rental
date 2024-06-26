@@ -3,6 +3,7 @@ package com.example.demo;
 import Controllers.bikeDescriptionController;
 import Controllers.profileController;
 import Models.DataBaseSingleton;
+import Models.User;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,8 @@ import javafx.scene.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.sql.Connection;
 
 public class HelloController extends profileController {
     private Stage stage;
@@ -25,11 +28,11 @@ public class HelloController extends profileController {
 
     @FXML
     protected void readTextArea(ActionEvent event) throws Exception {
-        /*
-        DataBaseSingleton db = DataBaseSingleton.getInstance();
 
+        DataBaseSingleton db = DataBaseSingleton.getInstance();
+        Connection connection = DataBaseSingleton.getConnection();
         System.out.println(loginField.getText() + "\t" + passwordField.getId());
-        if(db.logIn(loginField.getText(), passwordField.getId())){
+        if(User.logIn(loginField.getText(), passwordField.getId())){
             switchToMainWindow(event);
         }
         else{
@@ -38,7 +41,9 @@ public class HelloController extends profileController {
             alert.show();
         }
 
-         */
+
+        DataBaseSingleton db = DataBaseSingleton.getInstance();
+        db.typo();
         switchToMainWindow(event);
     }
 

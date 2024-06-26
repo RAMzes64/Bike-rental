@@ -1,17 +1,56 @@
 package Models;
 
-abstract class User {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class User {
     protected int _id;
 
     protected String _name;
 
     protected String _password;
 
-    protected int _seriesPassport;
+    protected String _Passport;
 
-    protected int _numberPassport;
+
+    protected static PreparedStatement statement;
+
+    protected static ResultSet resultSet;
+
+    protected static Connection connection ;
+
 
     public int getId(){
         return _id;
+    }
+
+    public static User logIn(String name, String password, DataBaseSingleton db) throws SQLException {//Надо переписать
+        connection = null;
+        statement = null;
+        resultSet = null;
+
+        try {
+            connection = db.
+            statement = connection.prepareStatement("SELECT id, name, aes_decrypt(password, 'key'), access FROM users WHERE name = ? AND password = ?");
+            statement.setString(1, name);
+            statement.setString(2, password);
+            resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                if(resultSet.getInt(4) == 2){
+
+                } else if (resultSet.getInt(4) == 3) {
+
+                }
+                else return new Client(resultSet.getInt(1));
+            }
+            if(resultSet != null) resultSet.close();
+            if(statement != null) statement.close();
+        }
+        catch (Exception e){
+
+        }
+        return new User();
     }
 }

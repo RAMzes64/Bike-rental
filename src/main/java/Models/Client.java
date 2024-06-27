@@ -13,27 +13,21 @@ public class Client extends User{
         _id = id;
     }
 
-    public void setAddress(DataBaseSingleton db,String address, String city){
-        _address = address;
-        _city = city;
-    }
-    public void registration(String name, String passport, String passsword, Connection connection) throws SQLException {
-
+    public static void registration(String name, String passport, String passsword) throws SQLException {
         statement = null;
         try {
-            statement = connection.prepareStatement("INSERT INTO users(aes_encrypt(passport, 'key'), name, aes_encrypt(password, 'key'), access) VALUES (?, ?, aes_encrypt(?,'key'), ?");
+            statement = DataBaseSingleton.getConnection().prepareStatement("INSERT INTO example(passport, name, password, access) VALUES (aes_encrypt(?,'key'), ?, aes_encrypt(?,'key'), 1");
             statement.setString(1, name);
             statement.setString(2, passport);
             statement.setString(3, passsword);
             statement.setInt(4, 1);
+            System.out.println("Что-то не так1");
+
+            if(statement != null) statement.close();
         }
 
         catch (Exception e){
-
-        }
-        finally {
-            if(resultSet != null) resultSet.close();
-            if(statement != null) statement.close();
+            System.out.println("Что-то не так");
         }
     }
 }

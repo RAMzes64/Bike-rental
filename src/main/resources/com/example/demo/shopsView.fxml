@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainWindowController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.shopController">
    <children>
       <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="600.0" prefWidth="900.0" VBox.vgrow="NEVER">
          <items>
@@ -23,13 +23,13 @@
             </AnchorPane>
             <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
                <content>
-                  <AnchorPane prefHeight="559.0" prefWidth="670.0">
+                  <AnchorPane prefHeight="598.0" prefWidth="670.0">
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="170.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
                         <TableView layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="646.0">
                           <columns>
-                            <TableColumn prefWidth="316.800030708313" text="Название" />
-                            <TableColumn prefWidth="328.800048828125" text="Адрес" />
+                            <TableColumn fx:id="nameT" prefWidth="316.800030708313" text="Название" />
+                            <TableColumn fx:id="addressT" prefWidth="328.800048828125" text="Адрес" />
                           </columns>
                         </TableView>
                      </children>

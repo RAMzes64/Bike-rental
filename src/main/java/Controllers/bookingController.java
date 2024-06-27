@@ -1,8 +1,6 @@
 package Controllers;
 
-import Models.DataBaseSingleton;
-import Models.bikeModel;
-import Models.shop;
+import Models.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,8 +14,6 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class bookingController extends MainWindowController implements Initializable {
-
-    private DataBaseSingleton db;
 
     @FXML
     private ChoiceBox<String> shopMenuBtn;
@@ -34,9 +30,10 @@ public class bookingController extends MainWindowController implements Initializ
     private String[] shops = {"1", "2", "3"};
 
     @FXML
-    private void toBook(ActionEvent event){
+    public void toBook(ActionEvent event){
         //
-        System.out.println(shopMenuBtn.getValue() + "\t" + getDate(event));
+        System.out.println(shopMenuBtn.getValue() + "\t" + getDate(event) + "\t" + bikeModel.getName());
+        //new booking(getDate(event), 1, 2);
 
     }
 
@@ -59,11 +56,7 @@ public class bookingController extends MainWindowController implements Initializ
     private String getDate(ActionEvent event){
         return dateBtn.getValue().toString();
     }
-
-    public void getDb(DataBaseSingleton db){
-        this.db = db;
-    }
-    private void getModel(bikeModel model){
-        bikeModel = model;
+    public void getModel(bikeModel b){
+        bikeModel = b;
     }
 }

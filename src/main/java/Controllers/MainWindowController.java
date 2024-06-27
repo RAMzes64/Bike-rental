@@ -16,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 public class MainWindowController {
@@ -27,6 +28,8 @@ public class MainWindowController {
     private Scene scene;
 
     private ImageView bikeImage;
+
+    protected Connection conn;
 
     @FXML
     protected void switchToBikeDescription(MouseEvent event) throws Exception {
@@ -62,33 +65,13 @@ public class MainWindowController {
     }
 
     @FXML
-    private void switchToRent(ActionEvent event) throws Exception {
-        //Надо переписать
-        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("rentView.fxml"));
-        root = loader.load();
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    private void switchToExample(ActionEvent event) throws Exception {
-        root = FXMLLoader.load(getClass().getClassLoader().getResource("exampleView.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
     private void switchToBooking(ActionEvent event) throws Exception {
         //Надо дописать
         FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("bookingView.fxml"));
         root = loader.load();
 
         bookingController controller = loader.getController();
+        controller.getModel(whatModel(event));
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -133,19 +116,25 @@ public class MainWindowController {
         //Надо дописать
     }
 
-    private bikeModel setModel(ActionEvent event, DataBaseSingleton db) throws SQLException {
+    private bikeModel whatModel(ActionEvent event) throws SQLException {
+        /*
         try {
             String id = ((ImageView) event.getSource()).getId();
             String imageId = ((ImageView) event.getSource()).getId();
-            if (imageId.equals("bookBtn1")) return new bikeModel(1, db);
-            else if (imageId.equals("bookBtn2")) return new bikeModel(2, db);
-            else if (imageId.equals("bookBtn3")) return new bikeModel(3, db);
-            else if (imageId.equals("bookBtn4")) return new bikeModel(4, db);
-            else if (imageId.equals("bookBtn5")) new bikeModel(5, db);
-            return new bikeModel(6, db);
+            if (imageId.equals("bookBtn1")) return new bikeModel(1);
+            else if (imageId.equals("bookBtn2")) return new bikeModel(2);
+            else if (imageId.equals("bookBtn3")) return new bikeModel(3);
+            else if (imageId.equals("bookBtn4")) return new bikeModel(4);
+            else if (imageId.equals("bookBtn5")) new bikeModel(5);
+            return new bikeModel(6);
         } catch (Exception e) {
 
         }
-        return new bikeModel(6, db);
+        */
+        return new bikeModel("Модель п");
+    } // Доделать, когда sql заработает
+
+    public void getConnection(Connection connection){
+        conn = connection;
     }
 }

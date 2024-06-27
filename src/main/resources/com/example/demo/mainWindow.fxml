@@ -66,8 +66,7 @@
                               <DropShadow />
                            </effect>
                         </ImageView>
-                        <Button fx:id="rentBtn1" layoutX="16.0" layoutY="108.0" mnemonicParsing="false" onAction="#switchToRent" prefHeight="30.0" prefWidth="145.0" text="Арендовать" />
-                        <Button fx:id="bookBtn1" layoutX="16.0" layoutY="149.0" mnemonicParsing="false" onAction="#switchToBooking" prefHeight="30.0" prefWidth="145.0" text="Забронировать" />
+                        <Button fx:id="bookBtn1" layoutX="16.0" layoutY="107.0" mnemonicParsing="false" onAction="#switchToBooking" prefHeight="30.0" prefWidth="145.0" text="Забронировать" />
                         <ImageView fx:id="imageM2" accessibleRole="BUTTON" cache="true" fitHeight="85.0" fitWidth="150.0" layoutX="260.0" layoutY="14.0" onMouseClicked="#switchToBikeDescription" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Images/bicycle/mountain2.png" />
@@ -76,8 +75,7 @@
                               <DropShadow />
                            </effect>
                         </ImageView>
-                        <Button fx:id="rentBtn2" layoutX="262.0" layoutY="108.0" mnemonicParsing="false" onAction="#switchToRent" prefHeight="30.0" prefWidth="145.0" text="Арендовать" />
-                        <Button fx:id="bookBtn2" layoutX="262.0" layoutY="149.0" mnemonicParsing="false" onAction="#switchToBooking" prefHeight="30.0" prefWidth="145.0" text="Забронировать" />
+                        <Button fx:id="bookBtn2" layoutX="262.0" layoutY="107.0" mnemonicParsing="false" onAction="#switchToBooking" prefHeight="30.0" prefWidth="145.0" text="Забронировать" />
                         <ImageView fx:id="imageR1" accessibleRole="BUTTON" cache="true" fitHeight="100.0" fitWidth="150.0" layoutX="506.0" layoutY="14.0" onMouseClicked="#switchToBikeDescription" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Images/bicycle/road1.png" />
@@ -86,8 +84,7 @@
                               <DropShadow />
                            </effect>
                         </ImageView>
-                        <Button fx:id="rentBtn3" layoutX="508.0" layoutY="108.0" mnemonicParsing="false" onAction="#switchToRent" prefHeight="30.0" prefWidth="145.0" text="Арендовать" />
-                        <Button fx:id="bookBtn3" layoutX="508.0" layoutY="149.0" mnemonicParsing="false" onAction="#switchToBooking" prefHeight="30.0" prefWidth="145.0" text="Забронировать" />
+                        <Button fx:id="bookBtn3" layoutX="508.0" layoutY="107.0" mnemonicParsing="false" onAction="#switchToBooking" prefHeight="30.0" prefWidth="145.0" text="Забронировать" />
                         <ImageView fx:id="imageR2" accessibleRole="BUTTON" cache="true" fitHeight="100.0" fitWidth="150.0" layoutX="14.0" layoutY="197.0" onMouseClicked="#switchToBikeDescription" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Images/bicycle/road2.png" />
@@ -96,8 +93,7 @@
                               <DropShadow />
                            </effect>
                         </ImageView>
-                        <Button fx:id="rentBtn4" layoutX="16.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToRent" prefHeight="30.0" prefWidth="145.0" text="Арендовать" />
-                        <Button fx:id="bookBtn4" layoutX="16.0" layoutY="332.0" mnemonicParsing="false" onAction="#switchToBooking" prefHeight="30.0" prefWidth="145.0" text="Забронировать" />
+                        <Button fx:id="bookBtn4" layoutX="16.0" layoutY="290.0" mnemonicParsing="false" onAction="#switchToBooking" prefHeight="30.0" prefWidth="145.0" text="Забронировать" />
                         <ImageView fx:id="imageT1" accessibleRole="BUTTON" cache="true" fitHeight="100.0" fitWidth="150.0" layoutX="260.0" layoutY="197.0" onMouseClicked="#switchToBikeDescription" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Images/bicycle/town1.png" />
@@ -106,8 +102,7 @@
                               <DropShadow />
                            </effect>
                         </ImageView>
-                        <Button fx:id="rentBtn5" layoutX="262.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToRent" prefHeight="30.0" prefWidth="145.0" text="Арендовать" />
-                        <Button fx:id="bookBtn5" layoutX="262.0" layoutY="332.0" mnemonicParsing="false" onAction="#switchToBooking" prefHeight="30.0" prefWidth="145.0" text="Забронировать" />
+                        <Button fx:id="bookBtn5" layoutX="262.0" layoutY="290.0" mnemonicParsing="false" onAction="#switchToBooking" prefHeight="30.0" prefWidth="145.0" text="Забронировать" />
                         <ImageView fx:id="imageT2" accessibleRole="BUTTON" cache="true" fitHeight="100.0" fitWidth="150.0" layoutX="506.0" layoutY="197.0" onMouseClicked="#switchToBikeDescription" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../Images/bicycle/town2.png" />
@@ -116,8 +111,7 @@
                               <DropShadow />
                            </effect>
                         </ImageView>
-                        <Button fx:id="rentBtn6" layoutX="508.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToRent" prefHeight="30.0" prefWidth="145.0" text="Арендовать" />
-                        <Button fx:id="bookBtn6" layoutX="508.0" layoutY="332.0" mnemonicParsing="false" onAction="#switchToBooking" prefHeight="30.0" prefWidth="145.0" text="Забронировать" />
+                        <Button fx:id="bookBtn6" layoutX="508.0" layoutY="290.0" mnemonicParsing="false" onAction="#switchToBooking" prefHeight="30.0" prefWidth="145.0" text="Забронировать" />
                      </children>
                   </AnchorPane>
                </content>

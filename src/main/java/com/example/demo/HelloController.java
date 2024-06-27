@@ -1,9 +1,8 @@
 package com.example.demo;
 
 import Controllers.bikeDescriptionController;
-import Controllers.profileController;
-import Models.DataBaseSingleton;
-import Models.User;
+import Controllers.*;
+import Models.*;
 import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,13 +25,12 @@ public class HelloController extends profileController {
     @FXML
     private TextField passwordField;
 
+    private Connection conn;
     @FXML
     protected void readTextArea(ActionEvent event) throws Exception {
-
-        DataBaseSingleton db = DataBaseSingleton.getInstance();
-        Connection connection = DataBaseSingleton.getConnection();
-        System.out.println(loginField.getText() + "\t" + passwordField.getId());
-        if(User.logIn(loginField.getText(), passwordField.getId())){
+        System.out.println(loginField.getText() + "\t" + passwordField.getId());/*
+        User user = User.logIn(loginField.getText(), passwordField.getId());
+        if(user.getClass() == Client.class){
             switchToMainWindow(event);
         }
         else{
@@ -40,10 +38,7 @@ public class HelloController extends profileController {
             alert.setHeaderText("Неверный пароль или логин");
             alert.show();
         }
-
-
-        DataBaseSingleton db = DataBaseSingleton.getInstance();
-        db.typo();
+        */
         switchToMainWindow(event);
     }
 
@@ -63,7 +58,9 @@ public class HelloController extends profileController {
     }
     @FXML
     private void switchToRegistration(ActionEvent event) throws Exception{
-        root = FXMLLoader.load(getClass().getResource("registration.fxml"));
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("registration.fxml"));
+        root = loader.load();
+
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

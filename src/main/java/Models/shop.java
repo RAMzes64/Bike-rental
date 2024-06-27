@@ -1,5 +1,9 @@
 package Models;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,14 +27,14 @@ public class shop {
         this.address = address;
     }
 
-    public static ArrayList<shop> getAllShops(DataBaseSingleton db) throws SQLException {
+    public static ObservableList<shop> getAllShops() throws SQLException {
         connection = null;
         statement = null;
         resultSet = null;
-        ArrayList<shop> shops = new ArrayList<>();
+        ObservableList<shop> shops = FXCollections.observableArrayList();
 
         try{
-            connection = db.getConnection();
+            connection = DataBaseSingleton.getConnection();
             statement = connection.prepareStatement("SELECT address, name FROM models");
             resultSet = statement.executeQuery();
 
@@ -46,7 +50,6 @@ public class shop {
             if(connection != null) connection.close();
             if(statement != null) statement.close();
         }
-
         return shops;
     }
 

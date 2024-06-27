@@ -58,14 +58,13 @@ public class bikeModel {
         return bikeModels;
     }
 
-    public bikeModel(int id, DataBaseSingleton db) throws SQLException{
+    public bikeModel(int id) throws SQLException{
         connection = null;
         statement = null;
         resultSet = null;
 
         try{
-            connection = db.getConnection();
-            statement = connection.prepareStatement("SELECT type, name, payment FROM models WHERE id = ?");
+            statement = DataBaseSingleton.getConnection().prepareStatement("SELECT type, name, payment FROM models WHERE id = ?");
             statement.setInt(1, id);
             resultSet = statement.executeQuery();
 
@@ -81,5 +80,9 @@ public class bikeModel {
             if(connection != null) connection.close();
             if(statement != null) statement.close();
         }
+    }
+
+    public bikeModel(String a){
+        name = a;
     }
 }

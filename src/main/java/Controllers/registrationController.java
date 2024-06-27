@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.Client;
 import com.example.demo.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import static javafx.scene.control.Alert.AlertType.CONFIRMATION;
 
@@ -36,7 +38,7 @@ public class registrationController extends profileController {
         try {
             String[] strs = readTextFields();
             setTextFields(strs);
-            //regDB(strs);
+            Client.registration(strs[0], strs[1]+strs[2], strs[4]);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("Вы зарегистрированы");
             alert.show();
@@ -57,12 +59,12 @@ public class registrationController extends profileController {
 
     @Override
     protected String[] readTextFields() {
-        String[] strs = new String[5];
+        String[] strs = new String[6];
         strs[0] = nameField.getText();
         strs[1] = seriesField.getText();
         strs[2] = numberField.getText();
-        strs[3] = passwordField.getText();
-        strs[4] = passwordField2.getText();
+        strs[4] = passwordField.getText();
+        strs[5] = passwordField2.getText();
 
         return strs;
     }
@@ -76,5 +78,9 @@ public class registrationController extends profileController {
             passwordField.setText(strs[4]);
             passwordField2.setText(strs[5]);
         }
+    }
+
+    private void regDB(){
+
     }
 }

@@ -47,10 +47,9 @@
       <items>
         <AnchorPane prefHeight="535.0" prefWidth="222.0">
                <children>
-                  <Button fx:id="shopsBtn" layoutX="16.0" layoutY="60.0" mnemonicParsing="false" onAction="#switchToShops" prefHeight="30.0" prefWidth="190.0" text="Магазины" />
                   <Button fx:id="bikesBtn" layoutX="16.0" layoutY="15.0" mnemonicParsing="false" onAction="#switchToBikes" prefHeight="30.0" prefWidth="190.0" text="Велосипеды" />
-                  <Button fx:id="profileBtn" layoutX="16.0" layoutY="105.0" mnemonicParsing="false" onAction="#switchToProfile" prefHeight="30.0" prefWidth="115.0" text="Профиль" />
-                  <Button fx:id="exitBtn" layoutX="141.0" layoutY="105.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="68.0" text="Выйти" textFill="#fafafa" />
+                  <Button fx:id="profileBtn" layoutX="16.0" layoutY="74.0" mnemonicParsing="false" onAction="#switchToProfile" prefHeight="30.0" prefWidth="115.0" text="Профиль" />
+                  <Button fx:id="exitBtn" layoutX="138.0" layoutY="74.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="68.0" text="Выйти" textFill="#fafafa" />
                </children>
         </AnchorPane>
         <ScrollPane prefHeight="-1.0" prefWidth="-1.0">

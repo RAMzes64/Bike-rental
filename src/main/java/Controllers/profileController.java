@@ -106,8 +106,4 @@ public class profileController extends MainWindowController{
 
         return strs;
     }
-
-    private void changeDB(String[] strs, DataBaseSingleton db){
-        //Серия и номер паспорта вместе
-    }
 }

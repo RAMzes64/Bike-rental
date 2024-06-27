@@ -6,11 +6,12 @@ public class booking {
 
     public booking(String date, int idC, int idShopModel){
     try{
-        PreparedStatement statement = DataBaseSingleton.getConnection().prepareStatement("INSERT INTO booking(....) VALUES (...)");
-        //statement.setString(1, getPaycheck);
-        statement.setInt(4, 1);
-        System.out.println("Что-то не так1");
-
+        PreparedStatement statement = DataBaseSingleton.getConnection().prepareStatement("INSERT INTO booking(id_user, id_shop_model, date, prepay) VALUES (?, ?, CONVERT( DATE, ?, 10), ?)");
+        statement.setInt(1, idC);
+        statement.setInt(2, idShopModel);
+        statement.setString(3, date);
+        statement.setInt(4,getPaycheck());
+        System.out.println(statement.executeUpdate());
         if(statement != null) statement.close();
     }
     catch (Exception e){

@@ -70,6 +70,19 @@ public class profileController extends MainWindowController{
         alert.setHeaderText("Неверное заполнение полей");
         alert.setContentText("Правильно заполните номер паспорта");
         alert.show();
+
+        return false;
+    }
+
+    protected boolean passwordCheck(String p){
+        if(p.matches("^{,8}$")) return true;
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Ошибка");
+        alert.setHeaderText("Неверное заполнение полей");
+        alert.setContentText("Слишком длинный пароль");
+        alert.show();
+
         return false;
     }
 
@@ -89,7 +102,7 @@ public class profileController extends MainWindowController{
         if (seriesCheck(strs[1])) series.setText(strs[1]);
         if (numberCheck(strs[2])) number.setText(strs[2]);
         if (addressCheck(strs[3])) address.setText(strs[3]);
-        if (similarPasswords(strs[4], strs[5])){
+        if (similarPasswords(strs[4], strs[5]) && passwordCheck(strs[4])){
             password1.setText(strs[4]);
             password2.setText(strs[5]);
         }

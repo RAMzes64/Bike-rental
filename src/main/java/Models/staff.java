@@ -9,9 +9,10 @@ public class staff extends User{
 
     }
 
+    /*
     public static booking getBooking(){
-
+        return
     }
+     */
 
-    public static int
 }

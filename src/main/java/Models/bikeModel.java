@@ -14,20 +14,27 @@ public class bikeModel {
 
     private int payPerDay;
 
+    private int id;
+
     private static Connection connection ;
 
     private static PreparedStatement statement;
 
     private static ResultSet resultSet;
 
-    public bikeModel(String type, String name, int payPerDay){
+    public bikeModel(int id, String type, String name, int payPerDay){
         this.type = type;
         this.name = name;
         this.payPerDay = payPerDay;
+        this.id = id;
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getId(){
+        return id;
     }
 
     public ArrayList<bikeModel> getAllModels(DataBaseSingleton db) throws SQLException {
@@ -39,11 +46,11 @@ public class bikeModel {
 
         try{
             connection = db.getConnection();
-            statement = connection.prepareStatement("SELECT type, name, payment FROM models");
+            statement = connection.prepareStatement("SELECT id, type, name, payment FROM models");
             resultSet = statement.executeQuery();
 
             for(int i = 0; resultSet.next(); i++){
-                bikeModels.add(new bikeModel(resultSet.getString(1), resultSet.getString(2), resultSet.getInt(3)));
+                bikeModels.add(new bikeModel(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getInt(4)));
             }
         }
         catch (Exception e){

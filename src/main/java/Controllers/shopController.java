@@ -34,7 +34,4 @@ public class shopController extends MainWindowController implements Initializabl
 
     }
 
-    private void setData() throws Exception{
-        shopList = shop.getAllShops();
-        nameT.setCellValueFactory(new PropertyValueFactory<shop, String>("name"));    }
 }

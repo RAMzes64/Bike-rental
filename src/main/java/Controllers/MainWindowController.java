@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.Client;
 import Models.DataBaseSingleton;
 import Models.bikeModel;
 import com.example.demo.HelloApplication;
@@ -27,7 +28,7 @@ public class MainWindowController {
 
     private Scene scene;
 
-    private ImageView bikeImage;
+    private Client client;
 
     protected Connection conn;
 
@@ -71,7 +72,8 @@ public class MainWindowController {
         root = loader.load();
 
         bookingController controller = loader.getController();
-        controller.getModel(whatModel(event));
+        controller.setModel(whatModel(event));
+        controller.setClient(client);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -114,27 +116,31 @@ public class MainWindowController {
     @FXML
     protected void exit(ActionEvent event) throws Exception {
         //Надо дописать
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        root = loader.load();
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     private bikeModel whatModel(ActionEvent event) throws SQLException {
-        /*
         try {
             String id = ((ImageView) event.getSource()).getId();
-            String imageId = ((ImageView) event.getSource()).getId();
-            if (imageId.equals("bookBtn1")) return new bikeModel(1);
-            else if (imageId.equals("bookBtn2")) return new bikeModel(2);
-            else if (imageId.equals("bookBtn3")) return new bikeModel(3);
-            else if (imageId.equals("bookBtn4")) return new bikeModel(4);
-            else if (imageId.equals("bookBtn5")) new bikeModel(5);
+            if (id.equals("bookBtn1")) return new bikeModel(1);
+            else if (id.equals("bookBtn2")) return new bikeModel(2);
+            else if (id.equals("bookBtn3")) return new bikeModel(3);
+            else if (id.equals("bookBtn4")) return new bikeModel(4);
+            else if (id.equals("bookBtn5")) new bikeModel(5);
             return new bikeModel(6);
         } catch (Exception e) {
 
         }
-        */
-        return new bikeModel("Модель п");
+        return new bikeModel(1);
     } // Доделать, когда sql заработает
 
-    public void getConnection(Connection connection){
-        conn = connection;
+    public void setClient(Client c){
+        client = c;
     }
 }

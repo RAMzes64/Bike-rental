@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -14,10 +15,9 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class bookingController extends MainWindowController implements Initializable {
 
@@ -36,24 +36,28 @@ public class bookingController extends MainWindowController implements Initializ
 
     private Client client;
 
-    private HashMap<String, Integer> shopMap;
+    private HashMap<String, Integer> shopMap = new HashMap<>();
 
     @FXML
-    public void toBook(ActionEvent event){
+    public void toBook(ActionEvent event) throws Exception {
         shopMap = getAllshops();
-        //System.out.println(shopMenuBtn.getValue() + "\t" + getDate(event) + "\t" + bikeModel.getName());
-        bookingDB(getDate(event), client.getId(), getIdShopModel(getShopId(shopMenuBtn.getValue()), bikeModel.getId()));
+        String dateStr = getDate(event);
+        if (checkDate(dateStr))
+        System.out.println(shopMenuBtn.getValue() + "\t" + dateStr + "\t" + bikeModel.getId());
+        //bookingDB(getDate(event), client.getId(), getIdShopModel(getShopId(shopMenuBtn.getValue()), bikeModel.getId()));
     }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        shopMenuBtn.getItems().addAll(getNameAddressShops());
+        String[] str = {"12", "23", "34", "45"};
+        shopMenuBtn.getItems().addAll(str);
+        //shopMenuBtn.getItems().addAll(getNameAddressShops());
     }
 
     private String getDate(ActionEvent event){
         return dateBtn.getValue().toString();
     }
-    public void getModel(bikeModel b){
+    public void setModel(bikeModel b){
         bikeModel = b;
     }
 
@@ -135,5 +139,19 @@ public class bookingController extends MainWindowController implements Initializ
 
     private int getShopId(String str){
         return shopMap.get(str);
+    }
+
+    private boolean checkDate(String dateStr) throws Exception {
+        Date date = new SimpleDateFormat("yyyy-MM-dd").parse(dateStr);
+        int result = Calendar.getInstance().getTime().compareTo(date);
+
+        if (result < 0) return true;
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Ошибка");
+        alert.setHeaderText("Неверное заполнение полей");
+        alert.setContentText("Неверная дата");
+        alert.show();
+        return false;
     }
 }

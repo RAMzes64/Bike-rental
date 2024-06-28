@@ -25,7 +25,6 @@ public class HelloController extends profileController {
     @FXML
     private TextField passwordField;
 
-    private Connection conn;
     @FXML
     protected void readTextArea(ActionEvent event) throws Exception {
         System.out.println(loginField.getText() + "\t" + passwordField.getId());/*
@@ -39,14 +38,17 @@ public class HelloController extends profileController {
             alert.show();
         }
         */
-        switchToMainWindow(event);
+        switchToMainWindow(event, new Client(1));
     }
 
     @FXML
-    protected void switchToMainWindow(ActionEvent event) throws Exception{
+    protected void switchToMainWindow(ActionEvent event, Client client) throws Exception{
         try {
             FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("mainWindow.fxml"));
             root = loader.load();
+
+            MainWindowController controller = loader.getController();
+            controller.setClient(client);
 
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);

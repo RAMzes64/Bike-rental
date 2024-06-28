@@ -28,6 +28,30 @@ public class bikeModel {
         this.payPerDay = payPerDay;
         this.id = id;
     }
+    public bikeModel(int id) throws SQLException{
+        connection = null;
+        statement = null;
+        resultSet = null;
+
+        try{
+            statement = DataBaseSingleton.getConnection().prepareStatement("SELECT type, name, payment FROM models WHERE id = ?");
+            statement.setInt(1, id);
+            resultSet = statement.executeQuery();
+
+            type = resultSet.getString(1);
+            name = resultSet.getString(2);
+            payPerDay = resultSet.getInt(3);
+        }
+        catch (Exception e){
+
+        }
+        finally {
+            if(resultSet != null) resultSet.close();
+            if(connection != null) connection.close();
+            if(statement != null) statement.close();
+        }
+    }
+
 
     public String getName() {
         return name;
@@ -63,33 +87,5 @@ public class bikeModel {
         }
 
         return bikeModels;
-    }
-
-    public bikeModel(int id) throws SQLException{
-        connection = null;
-        statement = null;
-        resultSet = null;
-
-        try{
-            statement = DataBaseSingleton.getConnection().prepareStatement("SELECT type, name, payment FROM models WHERE id = ?");
-            statement.setInt(1, id);
-            resultSet = statement.executeQuery();
-
-            type = resultSet.getString(1);
-            name = resultSet.getString(2);
-            payPerDay = resultSet.getInt(3);
-        }
-        catch (Exception e){
-
-        }
-        finally {
-            if(resultSet != null) resultSet.close();
-            if(connection != null) connection.close();
-            if(statement != null) statement.close();
-        }
-    }
-
-    public bikeModel(String a){
-        name = a;
     }
 }

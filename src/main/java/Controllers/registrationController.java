@@ -79,8 +79,4 @@ public class registrationController extends profileController {
             passwordField2.setText(strs[5]);
         }
     }
-
-    private void regDB(){
-
-    }
 }

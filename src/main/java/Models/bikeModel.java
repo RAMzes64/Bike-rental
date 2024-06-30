@@ -16,11 +16,11 @@ public class bikeModel {
 
     private int id;
 
-    private static Connection connection ;
+    private Connection connection ;
 
-    private static PreparedStatement statement;
+    private PreparedStatement statement;
 
-    private static ResultSet resultSet;
+    private ResultSet resultSet;
 
     public bikeModel(int id, String type, String name, int payPerDay){
         this.type = type;
@@ -28,22 +28,26 @@ public class bikeModel {
         this.payPerDay = payPerDay;
         this.id = id;
     }
+
+
     public bikeModel(int id) throws SQLException{
         connection = null;
         statement = null;
         resultSet = null;
-
+        String request = "SELECT type, name, pay_per_day FROM models WHERE id = ?;";
         try{
-            statement = DataBaseSingleton.getConnection().prepareStatement("SELECT type, name, payment FROM models WHERE id = ?");
+            connection = DataBaseSingleton.getConnection();
+            statement = connection.prepareStatement(request);
             statement.setInt(1, id);
             resultSet = statement.executeQuery();
 
-            type = resultSet.getString(1);
-            name = resultSet.getString(2);
-            payPerDay = resultSet.getInt(3);
+            while (resultSet.next()) {
+                type = resultSet.getString(1);
+                name = resultSet.getString(2);
+                payPerDay = resultSet.getInt(3);
+            }
         }
         catch (Exception e){
-
         }
         finally {
             if(resultSet != null) resultSet.close();
@@ -61,31 +65,8 @@ public class bikeModel {
         return id;
     }
 
-    public ArrayList<bikeModel> getAllModels(DataBaseSingleton db) throws SQLException {
-
-        connection = null;
-        statement = null;
-        resultSet = null;
-        ArrayList<bikeModel> bikeModels = new ArrayList<>();
-
-        try{
-            connection = db.getConnection();
-            statement = connection.prepareStatement("SELECT id, type, name, payment FROM models");
-            resultSet = statement.executeQuery();
-
-            for(int i = 0; resultSet.next(); i++){
-                bikeModels.add(new bikeModel(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getInt(4)));
-            }
-        }
-        catch (Exception e){
-
-        }
-        finally {
-            if(resultSet != null) resultSet.close();
-            if(connection != null) connection.close();
-            if(statement != null) statement.close();
-        }
-
-        return bikeModels;
+    public int getPayPerDay(){
+        return payPerDay;
     }
+
 }

@@ -13,6 +13,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class HelloController extends profileController {
     private Stage stage;
@@ -27,53 +30,85 @@ public class HelloController extends profileController {
 
     @FXML
     protected void readTextArea(ActionEvent event) throws Exception {
-        System.out.println(loginField.getText() + "\t" + passwordField.getId());/*
-        User user = User.logIn(loginField.getText(), passwordField.getId());
+        User user = logIn(loginField.getText(), passwordField.getId());
         if(user.getClass() == Client.class){
             switchToMainWindow(event);
+        }
+        else if (user.getClass() == staff.class){
+            switchToRent(event);
         }
         else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Неверный пароль или логин");
             alert.show();
         }
-        */
-        switchToMainWindow(event, new Client(1));
+
+        //switchToMainWindow(event, new Client(1));
+        switchToMainWindow(event);
     }
 
     @FXML
-    protected void switchToMainWindow(ActionEvent event, Client client) throws Exception{
+    protected void switchToMainWindow(ActionEvent event) throws Exception {
         try {
             FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("mainWindow.fxml"));
             root = loader.load();
 
             MainWindowController controller = loader.getController();
-            controller.setClient(client);
 
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        }
-         catch (Exception e) {
+        } catch (Exception e) {
         }
     }
+
     @FXML
-    private void switchToRegistration(ActionEvent event) throws Exception{
+    private void switchToRent(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("rentView.fxml"));
+            root = loader.load();
+
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+        }
+    }
+
+    @FXML
+    private void switchToRegistration(ActionEvent event) throws Exception {
         FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("registration.fxml"));
         root = loader.load();
 
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    private void readPassword(){
-        System.out.print(passwordField.getText());
-    }
+    public static User logIn(String name, String password) throws SQLException {//Надо переписать
+        PreparedStatement statement = null;
 
-    private void readName(){
-        System.out.println(loginField.getText());
+        try {
+            statement = DataBaseSingleton.getConnection().prepareStatement("SELECT id, name, aes_decrypt(password, 'key'), access FROM users WHERE name = ? AND password = ?");
+            statement.setString(1, name);
+            statement.setString(2, password);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                if (resultSet.getInt(4) == 2) {
+                    return new staff();
+                } else if (resultSet.getInt(4) == 3) {
+
+                } else return new Client(resultSet.getInt(1));
+            }
+            if (resultSet != null) resultSet.close();
+            if (statement != null) statement.close();
+        } catch (Exception e) {
+
+        }
+        return new User();
     }
 }

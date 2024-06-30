@@ -5,14 +5,4 @@ public class staff extends User{
 
     }
 
-    public static void rent(){
-
-    }
-
-    /*
-    public static booking getBooking(){
-        return
-    }
-     */
-
 }

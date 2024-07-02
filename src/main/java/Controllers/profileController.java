@@ -75,7 +75,7 @@ public class profileController extends MainWindowController{
     }
 
     protected boolean passwordCheck(String p){
-        if(p.matches("^{,8}$")) return true;
+        if(p.matches("^{0,8}$")) return true;
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Ошибка");

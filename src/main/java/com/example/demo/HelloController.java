@@ -42,9 +42,6 @@ public class HelloController extends profileController {
             alert.setHeaderText("Неверный пароль или логин");
             alert.show();
         }
-
-        //switchToMainWindow(event, new Client(1));
-        switchToMainWindow(event);
     }
 
     @FXML

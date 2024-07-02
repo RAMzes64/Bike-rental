@@ -86,7 +86,7 @@ public class rentController implements Initializable {
 
     }
 
-    private ObservableList<rent> getRents() throws Exception{
+    private ObservableList<rent> getRents() throws Exception{/*
         String request = "SELECT * FROM rents;";
         PreparedStatement statement = DataBaseSingleton.getConnection().prepareStatement(request);
         ResultSet r = statement.executeQuery();
@@ -94,6 +94,13 @@ public class rentController implements Initializable {
             rents.add(new rent(r.getString(1), r.getString(2), r.getString(3), r.getString(4)));
             System.out.println(rents.get(rents.size() -1).getId());
         }
+
+        */
+        rents.add(new rent("1", "1", "12-12-12"));
+        rents.add(new rent("1", "1", "12-12-12"));
+        rents.add(new rent("1", "1", "12-12-12"));
+        rents.add(new rent("1", "1", "12-12-12"));
+        rents.add(new rent("1", "1", "12-12-12"));
 
         return rents;
     }

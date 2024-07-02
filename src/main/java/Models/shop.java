@@ -24,8 +24,6 @@ public class shop {
         this.address = address;
     }
 
-
-
     public String getName(){
         return name;
     }
